@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+// import route and our components
+import {Route, BrowserRouter, Routes} from "react-router-dom"
+import Currencies from './Pages/Currencies';
+import Main from './Pages/Main';
+import Price from './Pages/Price';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* define the root route. notice this is similar to the express.js server. */}
+      <Routes>
+        <Route path="/">
+          <Main/>
+        </Route>
+        <Route path="/currencies">
+          <Currencies/>
+        </Route>
+        <Route path="/price">
+          <Price/>
+        </Route>
+      </Routes>
     </div>
   );
 }
